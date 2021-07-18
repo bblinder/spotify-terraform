@@ -18,20 +18,28 @@ provider "spotify" {
 resource "spotify_playlist" "playlist" {
   name        = "Terraform Summer Playlist"
   description = "This playlist was created by Terraform"
-  public      = true
+  public      = false
 
   tracks = [
     data.spotify_search_track.by_artist.tracks[0].id,
     data.spotify_search_track.by_artist.tracks[1].id,
     data.spotify_search_track.by_artist.tracks[2].id,
+    data.spotify_search_track.by_artist.tracks[3].id,
+    data.spotify_search_track.by_artist.tracks[4].id
   ]
 }
 
 data "spotify_search_track" "by_artist" {
-  artists = ["Dolly Parton"]
+  #artists = ["Trent Reznor and Atticus Ross"]
   #  album = "Jolene"
   #  name  = "Early Morning Breeze"
+  artists = ["Ramin Djawadi"]
+    album = "Westworld Season 3"
 }
+
+#data "spotify_search_track" "by_artist" {
+#  artists = ["Trent Reznor and Atticus Ross"]
+#}
 
 output "tracks" {
   value = data.spotify_search_track.by_artist.tracks
