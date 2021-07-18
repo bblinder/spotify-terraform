@@ -30,16 +30,11 @@ resource "spotify_playlist" "playlist" {
 }
 
 data "spotify_search_track" "by_artist" {
-  #artists = ["Trent Reznor and Atticus Ross"]
-  #  album = "Jolene"
+  artists = ["Trent Reznor and Atticus Ross"]
+    album = "Watchmen"
   #  name  = "Early Morning Breeze"
-  artists = ["Ramin Djawadi"]
-    album = "Westworld Season 3"
+  #artists = ["Ramin Djawadi"]
 }
-
-#data "spotify_search_track" "by_artist" {
-#  artists = ["Trent Reznor and Atticus Ross"]
-#}
 
 output "tracks" {
   value = data.spotify_search_track.by_artist.tracks
