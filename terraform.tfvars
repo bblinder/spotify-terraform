@@ -1,1 +1,1 @@
-spotify_api_key = SPOTIFY_API_KEY
+spotify_api_key = "$SPOTIFY_API_KEY"
